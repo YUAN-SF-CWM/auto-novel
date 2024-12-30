@@ -71,10 +71,12 @@ export function RandomName() {
     const randomName = randomChinese(2) + randomChar(4);
     return randomName;
 }
-
-// 隐藏手机号
-export function Secret(phoneNumber: string) {
-    return phoneNumber.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+// 隐藏手机号 (改进版)
+export function maskPhoneNumber(phoneNumber: string): string {
+    if (typeof phoneNumber !== 'string' || phoneNumber.length < 7) {
+      return 'Invalid phone number'; //  添加错误处理
+    }
+    return phoneNumber.replace(/(\d{3})\d+(\d{3})/, '$1****$2'); // 更通用的正则表达式
 }
 
 // 获得格式化时间xxxx-xx-xx
