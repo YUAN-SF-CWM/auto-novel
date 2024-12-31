@@ -72,7 +72,7 @@ export function RandomName() {
     return randomName;
 }
 // 隐藏手机号 (改进版)
-export function maskPhoneNumber(phoneNumber: string): string {
+export function Secret(phoneNumber: string): string {
     if (typeof phoneNumber !== 'string' || phoneNumber.length < 7) {
       return 'Invalid phone number'; //  添加错误处理
     }
